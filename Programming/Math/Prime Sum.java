@@ -8,12 +8,10 @@ public class Solution {
         // Check if number is prime then check number - i is a prime
         // If both are prime then return the both number by min, max format
         for(int i = 2; i < a;i++){
-            if(IsPrime(i)){
-                if(IsPrime(a-i)){
-                    result.add(Math.min(i,a-i));
-                    result.add(Math.max(i,a-i));
-                    return result;
-                }
+            if(IsPrime(i) && IsPrime(a-i)){
+                result.add(Math.min(i,a-i));
+                result.add(Math.max(i,a-i));
+                return result;
             }
         }
         return result;
