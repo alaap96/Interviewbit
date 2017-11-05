@@ -4,9 +4,6 @@ public class Solution {
         ArrayList<Integer> result = new ArrayList<Integer>();
         // If number is odd then return empty arraylist(no need)
         if(a%2 == 1)return result;
-        // Two numbers 
-        int num1;
-        int num2;
         // Apporch is to traverse through the entire 2 to number 
         // Check if number is prime then check number - i is a prime
         // If both are prime then return the both number by min, max format
