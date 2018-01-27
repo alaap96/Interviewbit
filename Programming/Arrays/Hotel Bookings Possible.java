@@ -9,8 +9,8 @@ public class Solution {
         // Idea is to sort and compare first number of both lists and for smaller number
         // event is done first and if at any time number of people present in hotel 
         // greater than K then return false else after loop return true
-        while(i < arrive.size() && j < depart.size()){
-            if(arrive.get(i) < depart.get(j)){
+        while(arriving < arrive.size() && departing < depart.size()){
+            if(arrive.get(arriving) < depart.get(departing)){
                 present++;
                 arriving++;
             }
