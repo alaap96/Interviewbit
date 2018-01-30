@@ -11,3 +11,20 @@ public class Solution {
 	    return count;
 	}
 }
+// another solution
+
+public class Solution {
+    public int titleToNumber(String A) {
+        int sum = getChar(A.charAt(0));
+        for(int i = 1; i < A.length(); i++){
+            int number = getChar(A.charAt(i));
+            sum = (sum)*26 + number;
+        }
+        return sum;
+    }
+    int getChar(char A){
+        int c;
+        c = (int)A - 64;
+        return c;
+    }
+}
