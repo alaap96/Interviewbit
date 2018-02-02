@@ -37,3 +37,31 @@ public class Solution {
 	    return count;
 	}
 }
+
+// Another style
+
+public class Solution {
+    public int romanToInt(String A) {
+        int count = 0;
+        for(int i = 0; i < A.length() - 1; i++){
+            char c = A.charAt(i);
+            char next = A.charAt(i+1);
+            int temp = value(c);
+            if(c == 'I' && (next == 'V' || next == 'X')){count -= temp;}
+            else if(c == 'X' && (next == 'L' || next == 'C')){count -= temp;}
+            else if(c == 'C' && (next == 'D' || next == 'M')){count -= temp;}
+            else count+=temp;
+        }
+        count+=value(A.charAt(A.length()-1));
+        return count;
+    }
+    public int value(char c){
+        if(c == 'M'){return 1000;}
+        else if(c == 'D'){return 500;}
+        else if(c == 'C'){return 100;}
+        else if(c == 'L'){return 50;}
+        else if(c == 'X'){return 10;}
+        else if(c == 'V'){return 5;}
+        else {return 1;}
+    }
+}
