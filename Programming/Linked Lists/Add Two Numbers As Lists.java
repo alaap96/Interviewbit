@@ -52,3 +52,48 @@ public class Solution {
 	    return head.next;
 	}
 }
+
+// very slightly changed method
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     ListNode(int x) { val = x; next = null; }
+ * }
+ */
+public class Solution {
+    public ListNode addTwoNumbers(ListNode A, ListNode B) {
+        ListNode result = new ListNode(0);
+        ListNode pointer = result;
+        int temp = 0;
+        while(A != null && B != null){
+            int sum = A.val + B.val + temp;
+            temp = 0;
+            if(sum >= 10){temp = sum / 10; sum = sum % 10;}
+            result.next = new ListNode(sum);
+            result = result.next;
+            A = A.next;
+            B = B.next;
+        }
+        while(A != null){
+            int sum = A.val + temp;
+            temp = 0;
+            if(sum >= 10){temp = sum / 10; sum = sum % 10;}
+            result.next = new ListNode(sum);
+            result = result.next;
+            A = A.next;
+        }
+        while(B != null){
+            int sum = B.val + temp;
+            temp = 0;
+            if(sum >= 10){temp = sum / 10; sum = sum % 10;}
+            result.next = new ListNode(sum);
+            result = result.next;
+            B = B.next;
+        }
+        if(temp != 0){result.next = new ListNode(temp);}
+        return pointer.next;
+    }
+}
+
