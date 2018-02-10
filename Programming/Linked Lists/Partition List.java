@@ -45,3 +45,61 @@ public class Solution {
 	    return leftHead;
 	}
 }
+// Another method and editorial
+
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     ListNode(int x) { val = x; next = null; }
+ * }
+ */
+public class Solution {
+    public ListNode partition(ListNode A, int B) {
+        ListNode result_temp = new ListNode(0);
+        ListNode result = result_temp;
+        ListNode temp = A;
+        while(temp != null){
+            if(temp.val < B){
+                result_temp.next = new ListNode(temp.val);
+                result_temp = result_temp.next;
+            }
+            temp = temp.next;
+        }
+        temp = A;
+        while(temp != null){
+            if(temp.val >= B){
+                result_temp.next = new ListNode(temp.val);
+                result_temp = result_temp.next;
+            }
+            temp = temp.next;
+        }
+        return result.next;
+    }
+}
+// Slightly modefied editorial
+// Created two linked lists for two halfs then at the end merged
+public class Solution {
+    public ListNode partition(ListNode A, int B) {
+        ListNode result_smaller = new ListNode(0);
+        ListNode result_larger = new ListNode(0);
+        ListNode temp_smaller = result_smaller;
+        ListNode temp_larger = result_larger;
+        ListNode temp = A;
+        while(temp != null){
+            if(temp.val < B){
+                result_smaller.next = new ListNode(temp.val);
+                result_smaller = result_smaller.next;
+            }else{
+                result_larger.next = new ListNode(temp.val);
+                result_larger = result_larger.next;
+            }
+            temp = temp.next;
+        }
+        result_smaller.next = temp_larger.next;
+        return temp_smaller.next;
+    }
+}
+
+
